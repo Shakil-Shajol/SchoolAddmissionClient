@@ -1,5 +1,5 @@
 <h1>Apply For Addmission Test</h1>
-<div>
+<!-- <div>
     <mat-card>
         <mat-card-header color='primary'>
             <mat-card-title>Fill the form</mat-card-title>
@@ -61,21 +61,25 @@
             </mat-form-field>
         </form>
     </mat-card>
-</div>
-<!-- <form [formGroup]="form" (ngSubmit)="onSubmited()" novalidate>
+</div> -->
+<form [formGroup]="form" (ngSubmit)="onSubmited()" novalidate>
     <input type="text" formControlName="fullName" id="fullName" required placeholder="Full Name" />
     <input type="text" formControlName="fatherName" id="fatherName" required placeholder="Father Name" />
     <input type="text" formControlName="motherName" id="motherName" required placeholder="motherName" />
     <input type="text" formControlName="birthDate" id="birthDate" required placeholder="Birth Date" />
     <input type="text" formControlName="birthRegistrationNo" id="birthRegistrationNo" required placeholder="Birth Registration No" />
-    <input type="text" formControlName="gender" id="gender" required placeholder="Gender" />
+    <!-- <input type="text" formControlName="gender" id="gender" required placeholder="Gender" /> -->
+    <select formControlName="gender" id="gender">
+        <option value='1'>Male</option>
+        <option value='2'>Female</option>
+    </select>
     <input type="text" formControlName="phone" id="phone" required placeholder="Phone" />
     <input type="text" formControlName="email" id="email" required placeholder="email" />
     <input type="text" formControlName="previousSchool" id="previousSchool" required placeholder="Previous School" />
     <input type="text" formControlName="lastPublicExamGPA" id="lastPublicExamGPA" required placeholder="lastPublicExamGPA" />
     <input type="text" formControlName="address" id="address" required placeholder="address" />
-    //<input type="text" formControlName="standerdClassId" id="standerdClassId" required placeholder="standerdClassId" />
-    //<input type="text" formControlName="examId" id="examId" required placeholder="examId" />
+    <!--<input type="text" formControlName="standerdClassId" id="standerdClassId" required placeholder="standerdClassId" />
+    <input type="text" formControlName="examId" id="examId" required placeholder="examId" /> -->
     <select formControlName="standerdClassId" id="standerdClassId">
         <option *ngFor="let s of standards" value={{s.classId}}>{{s.className}}|{{s.classId}}</option>
     </select>
@@ -85,4 +89,4 @@
     <input type="file" (change)="onImageSelected($event)">
     <input type="file" (change)="onFileSelected($event)">
     <button type="submit">Save Data</button>
-</form> -->
+</form>
