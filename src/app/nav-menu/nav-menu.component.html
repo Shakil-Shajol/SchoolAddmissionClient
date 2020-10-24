@@ -1,0 +1,23 @@
+
+<p>
+    <mat-toolbar color="primary">
+            <button mat-icon-button  aria-label="Example icon button with a home icon">
+                <mat-icon>menu</mat-icon>
+              </button>
+          <span>Khidirpur High School</span>
+          <span class="example-spacer"></span>
+          <button mat-button [routerLink]="['/home']">
+            <span>Home</span>
+          </button>
+          <button mat-button [routerLink]="['/addmission']">
+            <span>Addmission</span>
+          </button>
+          <button mat-button [routerLink]="['/notice/add']">
+            <span>Notices</span>
+          </button>
+          
+          <button mat-button [routerLink]="['/session/add']">
+            <span>Session</span>
+          </button>
+    </mat-toolbar>
+  </p>

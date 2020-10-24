@@ -1,0 +1,13 @@
+<div fxLayoutAlign="center center" fxFlexFill>
+    <mat-card fxFlex="50">
+        <mat-card-header color='primary'>
+            <mat-card-title>Create Session</mat-card-title>
+        </mat-card-header>
+        <form fxLayoutAlign="stretch" fxLayout='column' #form="ngForm" (submit)="onSubmit(form)">
+        <mat-form-field>
+            <input matInput placeholder="Session" name="sessionYear" #noticeNo="ngModel" [(ngModel)]="serv.formData.sessionYear" required>
+        </mat-form-field>
+       <button mat-raised-button color='primary' type="submit" [disabled]="form.invalid">Create Session</button>
+        </form>
+    </mat-card>
+</div>

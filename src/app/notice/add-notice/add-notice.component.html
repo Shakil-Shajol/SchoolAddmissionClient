@@ -1,0 +1,25 @@
+<div fxLayoutAlign="center center" fxFlexFill>
+    <mat-card fxFlex="75">
+        <mat-card-header color='primary'>
+            <mat-card-title>Create Notice</mat-card-title>
+        </mat-card-header>
+        <form fxLayoutAlign="stretch" fxLayout='column' #form="ngForm" (submit)="onSubmit(form)">
+        <mat-form-field>
+            <input matInput placeholder="Notice No." name="noticeNo" #noticeNo="ngModel" [(ngModel)]="serv.formData.noticeNo" required>
+        </mat-form-field>
+
+        <mat-form-field> 
+            <input matInput type="date" placeholder="Pubish Date" name="publishDate" #publishDate="ngModel" [(ngModel)]="serv.formData.publishDate" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input matInput placeholder="Notice Head" name="headLine" #headLine="ngModel" [(ngModel)]="serv.formData.headLine" required>
+        </mat-form-field>
+
+        <mat-form-field>
+            <textarea matInput placeholder="Notice Body" name="noticeBody" #noticeBody="ngModel" [(ngModel)]="serv.formData.noticeBody" required></textarea>
+        </mat-form-field>
+       <button mat-raised-button color='primary' type="submit" [disabled]="form.invalid">Publish Notice</button>
+        </form>
+    </mat-card>
+</div>
