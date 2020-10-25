@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { ApplicationService } from 'src/app/services/application.service';
 
 @Component({
@@ -13,7 +14,8 @@ export class ApplicationComponent implements OnInit {
   selectedFile:File=null;
   selectedImage:File=null;
   form:FormGroup;
-  constructor(private ser:ApplicationService) { 
+  imageUrl:string='./assets/Img/profile.png';
+  constructor(private ser:ApplicationService,private toastr:ToastrService) { 
     this.form=new FormGroup({
       'fullName':new FormControl(null),
       'fatherName':new FormControl(null),
@@ -41,6 +43,11 @@ export class ApplicationComponent implements OnInit {
 
   onImageSelected(event){
     this.selectedImage=<File>event.target.files[0];
+    var reader=new FileReader();
+    reader.readAsDataURL(event.target.files[0]);
+    reader.onload=(e:any)=>{
+      this.imageUrl=e.target.result;
+    }
   }
 
   onSubmited(){
@@ -61,6 +68,8 @@ export class ApplicationComponent implements OnInit {
     fd.append('examId',this.form.get('examId').value);
     fd.append('Image',this.selectedImage,this.selectedImage.name);
     this.ser.postCandidate(fd).subscribe(res=>{
+      this.toastr.success(res.candidateId, 'Your ID');
+      console.log("under this")
       console.log(res);
     })
   }

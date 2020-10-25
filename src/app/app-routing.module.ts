@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AddmissionComponent } from './addmission/addmission.component';
 import { ApplicationComponent } from './addmission/application/application.component';
+import { AddExamComponent } from './exam/add-exam/add-exam.component';
 import { HomeComponent } from './home/home.component';
 import { AddNoticeComponent } from './notice/add-notice/add-notice.component';
 import { NoticeComponent } from './notice/notice.component';
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path:'apply',component:ApplicationComponent},
   {path:'notice/add',component:AddNoticeComponent},
   {path:'session/add',component:AddSessionComponent},
+  {path:'exam/add',component:AddExamComponent},
   {path:'notice/:id',component:NoticeComponent},
   {path:'**',component:HomeComponent,pathMatch:'full'}
 ];

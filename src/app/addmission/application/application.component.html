@@ -63,30 +63,33 @@
     </mat-card>
 </div> -->
 <form [formGroup]="form" (ngSubmit)="onSubmited()" novalidate>
-    <input type="text" formControlName="fullName" id="fullName" required placeholder="Full Name" />
-    <input type="text" formControlName="fatherName" id="fatherName" required placeholder="Father Name" />
-    <input type="text" formControlName="motherName" id="motherName" required placeholder="motherName" />
-    <input type="text" formControlName="birthDate" id="birthDate" required placeholder="Birth Date" />
-    <input type="text" formControlName="birthRegistrationNo" id="birthRegistrationNo" required placeholder="Birth Registration No" />
+    <input type="text" formControlName="fullName" id="fullName" required placeholder="Full Name" /><br>
+    <input type="text" formControlName="fatherName" id="fatherName" required placeholder="Father Name" /><br>
+    <input type="text" formControlName="motherName" id="motherName" required placeholder="motherName" /><br>
+    <input type="text" formControlName="birthDate" id="birthDate" required placeholder="Birth Date" /><br>
+    <input type="text" formControlName="birthRegistrationNo" id="birthRegistrationNo" required placeholder="Birth Registration No" /><br>
     <!-- <input type="text" formControlName="gender" id="gender" required placeholder="Gender" /> -->
     <select formControlName="gender" id="gender">
         <option value='1'>Male</option>
         <option value='2'>Female</option>
-    </select>
-    <input type="text" formControlName="phone" id="phone" required placeholder="Phone" />
-    <input type="text" formControlName="email" id="email" required placeholder="email" />
-    <input type="text" formControlName="previousSchool" id="previousSchool" required placeholder="Previous School" />
-    <input type="text" formControlName="lastPublicExamGPA" id="lastPublicExamGPA" required placeholder="lastPublicExamGPA" />
-    <input type="text" formControlName="address" id="address" required placeholder="address" />
+    </select><br>
+    <input type="text" formControlName="phone" id="phone" required placeholder="Phone" /><br>
+    <input type="text" formControlName="email" id="email" required placeholder="email" /><br>
+    <input type="text" formControlName="previousSchool" id="previousSchool" required placeholder="Previous School" /><br>
+    <input type="text" formControlName="lastPublicExamGPA" id="lastPublicExamGPA" required placeholder="lastPublicExamGPA" /><br>
+    <input type="text" formControlName="address" id="address" required placeholder="address" /><br>
     <!--<input type="text" formControlName="standerdClassId" id="standerdClassId" required placeholder="standerdClassId" />
     <input type="text" formControlName="examId" id="examId" required placeholder="examId" /> -->
     <select formControlName="standerdClassId" id="standerdClassId">
         <option *ngFor="let s of standards" value={{s.classId}}>{{s.className}}|{{s.classId}}</option>
-    </select>
+    </select><br>
     <select formControlName="examId" id="examId">
         <option *ngFor="let e of exams" value={{e.examId}}>{{e.examCode}}|{{e.examId}}</option>
-    </select>
-    <input type="file" (change)="onImageSelected($event)">
-    <input type="file" (change)="onFileSelected($event)">
-    <button type="submit">Save Data</button>
+    </select><br>
+    <div>
+        <img [src]='imageUrl' alt="photo" height="100" width="80"><br>
+        <input type="file" (change)="onImageSelected($event)"><br>
+    </div>
+    <input type="file" (change)="onFileSelected($event)"><br>
+    <button type="submit">Submit</button>
 </form>

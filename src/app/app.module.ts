@@ -23,6 +23,9 @@ import { ExamService } from "./services/exam.service";
 import { SessionService } from "./services/session.service";
 import { SessionComponent } from './session/session.component';
 import { AddSessionComponent } from './session/add-session/add-session.component';
+import { ExamComponent } from './exam/exam.component';
+import { AddExamComponent } from './exam/add-exam/add-exam.component';
+import { ResultComponent } from './result/result.component';
 
 
 @NgModule({
@@ -36,7 +39,10 @@ import { AddSessionComponent } from './session/add-session/add-session.component
     AddmissionComponent,
     ApplicationComponent,
     SessionComponent,
-    AddSessionComponent
+    AddSessionComponent,
+    ExamComponent,
+    AddExamComponent,
+    ResultComponent
   ],
   imports: [
     BrowserModule,

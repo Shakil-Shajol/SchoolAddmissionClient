@@ -1,0 +1,85 @@
+<mat-card>
+    <mat-card-header color='primary'>
+        <mat-card-title>Create Exam Schedule</mat-card-title>
+    </mat-card-header>
+</mat-card>
+<div class="mb-3"></div>
+<form [formGroup]="webForm" (ngSubmit)="onSubmited()">
+    <mat-card>
+        <mat-card-header color='primary'>
+            <mat-card-title>Exam Info</mat-card-title>
+        </mat-card-header>
+        <div class="row">
+            <div class="col-md-4 col-sm-12">
+                <mat-form-field class="example-full-width">
+                        <mat-label>Session</mat-label>
+                        <mat-select formControlName="sessionId" id="sessionId">
+                        <mat-option *ngFor="let e of sessions" value={{e.sessionId}}>{{e.sessionYear}}</mat-option>
+                        </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4 col-sm-12">
+                <mat-form-field class="example-full-width">
+                    <mat-label>Exam Code</mat-label>
+                    <input matInput formControlName="examCode" id="examCode" type="text" placeholder="Exam Code" >
+                </mat-form-field>
+            </div>
+
+            <div class="col-md-4 col-sm-12">
+                <mat-form-field  class="example-full-width">
+                    <mat-label>Exam Date</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="examDate" id="examDate">
+                    <mat-datepicker-toggle  color="primary" matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+        </div>
+    </mat-card>
+    <mat-card>
+        <mat-card-header color='primary'>
+            <mat-card-title>Subjects</mat-card-title>
+        </mat-card-header>
+        <div class="row">
+            <button mat-fab color="primary"  type="button" [disabled]="webForm.get('subjects').invalid" (click)="addSubjectClick()">
+                <mat-icon>add</mat-icon>
+              </button>
+        </div>
+        <mat-card-content formArrayName="subjects" *ngFor="let subject of webForm.get('subjects')['controls']; let i=index">
+            <div *ngIf="webForm.get('subjects').length>1">
+                <hr *ngIf="i>0">
+                <h4>Subject {{i+1}}</h4>
+            </div>
+            <div class="row"  [formGroupName]="i">
+                <div class="col-md-3 col-sm-12" [ngClass]="{'has-error': subject.get('subjectId').invalid && subject.get('subjectId').touched}">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Subject</mat-label>
+                        <mat-select formControlName="subjectId" [id]="'subjectId_'+i">
+                          <mat-option *ngFor="let e of subjects" value={{e.subjectId}}>{{e.subjectName}}</mat-option>
+                        </mat-select>
+                  </mat-form-field>
+                </div>
+                <div class="col-md-3 col-sm-12">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Subject Mark</mat-label>
+                        <input matInput  formControlName="mark" type="text" [id]="'mark'+i" placeholder=" Subject Mark">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-3 col-sm-12">
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Subject Mark</mat-label>
+                        <input matInput formControlName="passMark" type="text" [id]="'passMark_'+i" placeholder="Pass Mark">
+                    </mat-form-field>
+                </div>
+                <div class="col-md-3 col-sm-12" *ngIf="webForm.get('subjects').length>1">
+                    <button mat-mini-fab color="warn" type="button" (click)="removeSubject(i)">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" type="submit">Submit</button>
+            <button mat-raised-button color="warn" type="button">Clear Form</button>
+          </mat-card-actions>
+    </mat-card>
+</form>
