@@ -1,5 +1,5 @@
 export class Candidateadd {
-    candidateId?:Number;		
+    candidateId?:number;		
     fullName:string; 			
     fatherName:string; 			
     motherName:string; 			

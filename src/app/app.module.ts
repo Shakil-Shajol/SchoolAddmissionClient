@@ -21,11 +21,13 @@ import { ApplicationComponent } from './addmission/application/application.compo
 import { ApplicationService } from "./services/application.service";
 import { ExamService } from "./services/exam.service";
 import { SessionService } from "./services/session.service";
+import { ResultService } from "./services/result.service";
 import { SessionComponent } from './session/session.component';
 import { AddSessionComponent } from './session/add-session/add-session.component';
 import { ExamComponent } from './exam/exam.component';
 import { AddExamComponent } from './exam/add-exam/add-exam.component';
 import { ResultComponent } from './result/result.component';
+import { ResultEntryComponent } from './result/result-entry/result-entry.component';
 
 
 @NgModule({
@@ -42,7 +44,8 @@ import { ResultComponent } from './result/result.component';
     AddSessionComponent,
     ExamComponent,
     AddExamComponent,
-    ResultComponent
+    ResultComponent,
+    ResultEntryComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +59,7 @@ import { ResultComponent } from './result/result.component';
     ToastrModule.forRoot(),
     ReactiveFormsModule
   ],
-  providers: [NoticeService,ApplicationService,ExamService,SessionService],
+  providers: [NoticeService,ApplicationService,ExamService,SessionService,ResultService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
